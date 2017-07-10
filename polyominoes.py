@@ -5,7 +5,8 @@ from __future__ import absolute_import
 import sys
 import itertools
 from utils import validate_coordinates, trim_shape, rotate_shape, convert_to_shape
-from bruteforce import generate_coordinates
+# from bruteforce import generate_coordinates
+from bypath import generate_coordinates
 
 
 class Polyominoes(object):
@@ -90,13 +91,3 @@ class Polyominoes(object):
         print('There are {} combinations'.format(combination_count))
         print('There are {} shapes'.format(len(self.shapes)))
         return len(self.shapes)
-
-
-if __name__ == '__main__':
-    Polyominoes().run(4)
-
-# 2 ---> 1
-# 3 ---> 2
-# 4 ---> 7
-# 5 ---> 18
-# 6 ---> 60

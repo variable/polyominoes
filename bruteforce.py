@@ -10,9 +10,9 @@ def generate_coordinates(number):
     """
 
     tuples = []
-    for x in range(number):
-        for y in range(number):
-            tuples.append((x, y))
+    for y in range(number):
+        for x in range(number):
+            tuples.append((y, x))
 
     # combination, not permutation, because points are the same
     # eg. (0,0) and (0,1) is the same as (0,1) and (0,0) represented in diagram

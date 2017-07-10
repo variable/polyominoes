@@ -11,12 +11,12 @@ def validate_coordinates(coordinates):
     coordinates_set = set(coordinates)
 
     def get_adjacent_points(coordinates, point):
-        x, y = point
+        y, x = point
         # check up left right down exists
-        up = (x + 1, y)
-        left = (x, y - 1)
-        down = (x - 1, y)
-        right = (x, y + 1)
+        up = (y - 1, x)
+        left = (y, x - 1)
+        down = (y + 1, x)
+        right = (y, x + 1)
         return coordinates_set.intersection(set([up, down, left, right]))
 
     def traverse_combination(coordinates, point, traversed):
@@ -37,7 +37,12 @@ def validate_coordinates(coordinates):
     return len(traversed) == len(coordinates)
 
 def convert_to_shape(coordinates):
-    return [[1 if (x, y) in coordinates else 0 for y in range(len(coordinates))] for x in range(len(coordinates))]
+    max_y = 1
+    max_x = 1
+    for y, x in coordinates:
+        max_y = max(y, max_y)
+        max_x = max(x, max_x)
+    return [[1 if (y, x) in coordinates else 0 for x in range(max_x+1)] for y in range(max_y+1)]
 
 def trim_shape(shape):
     """

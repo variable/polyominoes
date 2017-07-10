@@ -67,7 +67,7 @@ p = Polyominoes()
 # assert Polyominoes().run(3) == 2
 # assert Polyominoes().run(4) == 7
 assert Polyominoes().run(5) == 18
-assert Polyominoes().run(6) == 60
-assert Polyominoes().run(7) == 196
-print Polyominoes().run(8)
+# assert Polyominoes().run(6) == 60
+# assert Polyominoes().run(7) == 196
+# print Polyominoes().run(8)
 
