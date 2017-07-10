@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 from __future__ import absolute_import
 import itertools
-import sys
+from utils import validate_coordinates
 
 def generate_coordinates(number):
     """
@@ -17,4 +17,5 @@ def generate_coordinates(number):
     # combination, not permutation, because points are the same
     # eg. (0,0) and (0,1) is the same as (0,1) and (0,0) represented in diagram
     for coordinates in itertools.combinations(tuples, number):
-        yield coordinates
+        if validate_coordinates(coordinates):
+            yield coordinates

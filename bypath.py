@@ -34,4 +34,5 @@ def generate_coordinates(number):
         coordinates = [(number, number)]
         for direction in directions:
             coordinates.append(direction(coordinates[-1]))
-        yield coordinates
+        if len(set(coordinates)) == number:
+            yield coordinates

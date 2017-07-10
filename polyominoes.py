@@ -5,8 +5,8 @@ from __future__ import absolute_import
 import sys
 import itertools
 from utils import validate_coordinates, trim_shape, rotate_shape, convert_to_shape
-# from bruteforce import generate_coordinates
-from bypath import generate_coordinates
+from bruteforce import generate_coordinates
+# from bypath import generate_coordinates
 
 
 class Polyominoes(object):
@@ -76,11 +76,10 @@ class Polyominoes(object):
             sys.stdout.flush()
             # if it's a valid shape and not already known
             # then add to it
-            if validate_coordinates(coordinates):
-                shape = convert_to_shape(coordinates)
-                shape = trim_shape(shape)
-                if not self.is_known_shape(shape):
-                    self.shapes.append(shape)
+            shape = convert_to_shape(coordinates)
+            shape = trim_shape(shape)
+            if not self.is_known_shape(shape):
+                self.shapes.append(shape)
 
         for _shape in self.shapes:
             for line in _shape:
